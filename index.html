@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>I Love You My Wife Leeya</title>
+    <meta
+      name="description"
+      content="A garden of 10,000 hearts and a love song for my wife Leeya."
+    />
+    <meta name="theme-color" content="#4A1520" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f6ede4;
+        --ink: #2a1218;
+        --ink-soft: #5c3340;
+        --wine: #4a1520;
+        --rose: #c45c6a;
+        --rose-deep: #9b3d4c;
+        --blush: #e8b4b8;
+        --surface: #fff8f2;
+        --shadow: 0 0 0 1px rgba(42, 18, 24, 0.08), 0 8px 24px -12px rgba(74, 21, 32, 0.18);
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: var(--cream); color: var(--ink); }
+      body {
+        font-family: "Cormorant Garamond", Palatino, serif;
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+      button:not(:disabled) { cursor: pointer; }
+      .hero {
+        position: relative;
+        min-height: 62vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3.5rem 1rem;
+      }
+      .hero img.bg {
+        position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      }
+      .hero .veil { position: absolute; inset: 0; background: rgba(246, 237, 228, 0.7); }
+      .panel {
+        position: relative;
+        z-index: 1;
+        width: min(48rem, 100%);
+        background: rgba(255, 248, 242, 0.9);
+        border-radius: 1.75rem;
+        padding: 2rem 1.25rem;
+        box-shadow: var(--shadow);
+      }
+      @media (min-width: 640px) { .panel { padding: 2.5rem; } }
+      .kicker {
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--wine);
+        font-size: 0.85rem;
+        margin: 0;
+      }
+      .title-row {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.85rem;
+      }
+      .rose-round {
+        width: 3.5rem; height: 3.5rem; border-radius: 999px; object-fit: cover;
+        box-shadow: var(--shadow);
+      }
+      @media (min-width: 640px) { .rose-round { width: 5rem; height: 5rem; } }
+      h1 {
+        font-family: "Great Vibes", cursive;
+        color: var(--wine);
+        font-size: clamp(1.9rem, 4vw, 3.6rem);
+        line-height: 1.15;
+        font-weight: 400;
+        max-width: 12ch;
+        margin: 0;
+      }
+      h2 {
+        font-family: "Great Vibes", cursive;
+        color: var(--wine);
+        font-size: 2.4rem;
+        font-weight: 400;
+        margin: 0.4rem 0 0;
+      }
+      .sub { margin: 1rem 0 0; font-style: italic; color: var(--ink-soft); font-size: 1.15rem; }
+      .marks { margin-top: 0.75rem; color: var(--rose); font-size: 1.25rem; letter-spacing: 0.4rem; }
+      .wrap { width: min(48rem, calc(100% - 2rem)); margin: 0 auto; }
+      .player {
+        background: var(--surface);
+        border-radius: 1.75rem;
+        padding: 1.15rem 1.25rem;
+        box-shadow: var(--shadow);
+        margin: -1.75rem auto 0;
+        position: relative;
+        z-index: 2;
+        width: min(42rem, calc(100% - 2rem));
+      }
+      .player-row { display: flex; align-items: center; gap: 1rem; }
+      .play {
+        flex: none;
+        width: 2.75rem; height: 2.75rem;
+        border: 0; border-radius: 999px;
+        background: var(--wine); color: var(--cream);
+        display: grid; place-items: center;
+      }
+      .play svg { width: 1.15rem; height: 1.15rem; }
+      .song-title { font-family: "Great Vibes", cursive; font-size: 1.6rem; color: var(--wine); margin: 0; line-height: 1.1; }
+      .song-sub { margin: 0.15rem 0 0; color: var(--ink-soft); font-size: 0.9rem; }
+      .time { font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: 0.9rem; white-space: nowrap; }
+      .bar {
+        margin-top: 0.9rem; height: 2.75rem; position: relative; cursor: pointer;
+      }
+      .track {
+        position: absolute; left: 0; right: 0; top: 50%; height: 6px;
+        transform: translateY(-50%); background: rgba(232, 180, 184, 0.5);
+        border-radius: 999px; overflow: hidden;
+      }
+      .fill { height: 100%; width: 0%; background: var(--rose); border-radius: 999px; }
+      .knob {
+        position: absolute; top: 50%; width: 14px; height: 14px;
+        border-radius: 999px; background: var(--wine); box-shadow: var(--shadow);
+        transform: translate(-50%, -50%); left: 0%;
+      }
+      .bouquet { margin: 3rem auto 0; width: min(48rem, calc(100% - 2rem)); overflow: hidden; border-radius: 1.75rem; box-shadow: var(--shadow); }
+      .bouquet img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+      .lyrics { text-align: center; margin: 3.5rem auto 0; width: min(36rem, calc(100% - 3rem)); }
+      .section { margin: 2rem 0 0; }
+      .label { letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-size: 0.72rem; margin: 0 0 0.7rem; }
+      .lyrics p { margin: 0.15rem 0; font-style: italic; color: var(--ink-soft); font-size: 1.15rem; }
+      .hearts-head { text-align: center; margin: 4rem 0 1rem; }
+      #hearts {
+        height: min(70vh, 640px);
+        overflow: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+      }
+      .heart-row { display: grid; height: 28px; }
+      .heart-cell { display: grid; place-items: center; font-size: 1rem; line-height: 1; cursor: pointer; user-select: none; }
+      .heart-cell.pop { transform: scale(1.45); }
+      .jump {
+        display: block; margin: 0.75rem auto 0; background: none; border: 0;
+        color: var(--rose-deep); font-family: inherit; font-size: 0.95rem; text-decoration: underline;
+      }
+      .petals-shot { margin: 4rem auto 0; width: min(48rem, calc(100% - 2rem)); overflow: hidden; border-radius: 1.75rem; box-shadow: var(--shadow); }
+      .petals-shot img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+      .note { text-align: center; font-style: italic; color: var(--ink-soft); font-size: 1.25rem; margin: 2rem 1.5rem; }
+      .foot { text-align: center; padding: 3rem 1rem 5rem; }
+      .foot .rose-round { width: 7rem; height: 7rem; }
+      .foot p.sig { font-family: "Great Vibes", cursive; color: var(--wine); font-size: 2rem; margin: 1.2rem 0 0.4rem; }
+      .foot .tiny { letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); font-size: 0.8rem; }
+      .rain { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+      .petal {
+        position: absolute; top: -10%; animation: fall linear infinite; opacity: 0.55; font-size: 1.1rem;
+      }
+      @keyframes fall {
+        to { transform: translateY(120vh) rotate(220deg); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .petal { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rain" id="rain" aria-hidden="true"></div>
+
+    <header class="hero">
+      <img class="bg" src="flowers/garland.jpg" alt="A watercolor garland of wine-red roses, blush peonies and jasmine" />
+      <div class="veil"></div>
+      <div class="panel">
+        <p class="kicker">For my wife</p>
+        <div class="title-row">
+          <img class="rose-round" src="flowers/rose.jpg" alt="" />
+          <h1>I Love you my wife Leeya</h1>
+          <img class="rose-round" src="flowers/rose.jpg" alt="" />
+        </div>
+        <p class="sub">with flowers — and ten thousand hearts</p>
+        <div class="marks">❀ ❤️ ✿ ❤️ ❀</div>
+      </div>
+    </header>
+
+    <audio id="song" src="audio/leeya-glow.mp3" preload="auto" loop></audio>
+
+    <section class="player" aria-label="Song for Leeya, at the top">
+      <div class="player-row">
+        <button class="play" type="button" data-play aria-label="Play Leeya Glow">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div style="min-width:0;flex:1">
+          <p class="song-title">Leeya Glow</p>
+          <p class="song-sub">Ain’t No Darkness · for Leeya</p>
+        </div>
+        <p class="time" data-time>0:00 / 3:33</p>
+      </div>
+      <div class="bar" data-seek role="slider" tabindex="0" aria-label="Song position">
+        <div class="track"><div class="fill" data-fill></div></div>
+        <div class="knob" data-knob></div>
+      </div>
+    </section>
+
+    <figure class="bouquet">
+      <img src="flowers/bouquet.jpg" alt="A lush bouquet of wine-red garden roses, blush peonies, jasmine and ranunculus" />
+    </figure>
+
+    <section class="lyrics">
+      <p class="kicker" style="color:var(--rose-deep)">Ain’t No Darkness</p>
+      <h2>Leeya Glow</h2>
+
+      <div class="section">
+        <p class="label">Verse 1</p>
+        <p>Sundown kisses on the window</p>
+        <p>I already set the table warm</p>
+        <p>One more hour and the city slows</p>
+        <p>Then you walk in and the calm is born</p>
+      </div>
+      <div class="section">
+        <p class="label">Pre-Chorus</p>
+        <p>Hold my hands across the evening</p>
+        <p>Let the quiet do its part</p>
+      </div>
+      <div class="section">
+        <p class="label">Chorus</p>
+        <p>Leeya glow, Leeya glow</p>
+        <p>Warm this house before the night</p>
+        <p>Friday love, let the candles show</p>
+        <p>You're the reason I feel right</p>
+      </div>
+      <div class="section">
+        <p class="label">Verse 2</p>
+        <p>I can feel the week dissolving</p>
+        <p>When your hands find mine at home</p>
+        <p>All the noise becomes a blessing</p>
+        <p>We don't have to be alone</p>
+      </div>
+      <div class="section">
+        <p class="label">Pre-Chorus</p>
+        <p>Stay a little closer, darling</p>
+        <p>Let the golden hour start</p>
+      </div>
+      <div class="section">
+        <p class="label">Chorus</p>
+        <p>Leeya glow, Leeya glow</p>
+        <p>Warm this house before the night</p>
+        <p>Friday love, let the candles show</p>
+        <p>You're the reason I feel right</p>
+      </div>
+      <div class="section">
+        <p class="label">Bridge</p>
+        <p>Rest with me, the world can wait</p>
+        <p>Gold and quiet, you and I</p>
+        <p>Every Friday we remake</p>
+        <p>A little garden under sky</p>
+      </div>
+      <div class="section">
+        <p class="label">Final Chorus</p>
+        <p>Leeya glow, Leeya glow</p>
+        <p>Warm this house before the night</p>
+        <p>Friday love, let the candles show</p>
+        <p>You're the reason I feel right</p>
+        <p>Leeya glow, come home tonight</p>
+        <p>Light the room and hold me tight</p>
+      </div>
+      <div class="section">
+        <p class="label">Outro</p>
+        <p>Leeya glow</p>
+        <p>Friday light</p>
+      </div>
+    </section>
+
+    <div class="hearts-head">
+      <h2>10,000 hearts</h2>
+      <p class="sub" style="margin-top:0.4rem">A garden grown for Leeya</p>
+    </div>
+    <div id="hearts" role="img" aria-label="A garden of 10000 hearts for Leeya"></div>
+    <button class="jump" type="button" id="last">Last heart</button>
+
+    <figure class="petals-shot">
+      <img src="flowers/petals.jpg" alt="Scattered wine, blush and cream rose petals" />
+    </figure>
+    <p class="note">Leeya, je t’aime.<br />You are my garden, my home, my light.</p>
+
+    <section class="player" style="margin:3rem auto 0" aria-label="Song for Leeya, at the bottom">
+      <div class="player-row">
+        <button class="play" type="button" data-play aria-label="Play Leeya Glow">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div style="min-width:0;flex:1">
+          <p class="song-title">Leeya Glow</p>
+          <p class="song-sub">Ain’t No Darkness · for Leeya</p>
+        </div>
+        <p class="time" data-time>0:00 / 3:33</p>
+      </div>
+      <div class="bar" data-seek role="slider" tabindex="0" aria-label="Song position">
+        <div class="track"><div class="fill" data-fill></div></div>
+        <div class="knob" data-knob></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <img class="rose-round" src="flowers/rose.jpg" alt="A single deep-red garden rose" />
+      <p class="sig">Forever, Leeya</p>
+      <p class="tiny">10,000 hearts · Leeya Glow · all yours</p>
+    </footer>
+
+    <script>
+      const TOTAL = 10000;
+      const ROW_H = 28;
+      const audio = document.getElementById("song");
+      const playIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      const pauseIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+
+      function fmt(s) {
+        if (!isFinite(s) || s < 0) return "0:00";
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ":" + String(sec).padStart(2, "0");
+      }
+      function syncPlayers() {
+        const d = audio.duration || 213.79;
+        const t = audio.currentTime || 0;
+        const r = d ? t / d : 0;
+        document.querySelectorAll("[data-time]").forEach((el) => {
+          el.textContent = fmt(t) + " / " + fmt(d);
+        });
+        document.querySelectorAll("[data-fill]").forEach((el) => { el.style.width = r * 100 + "%"; });
+        document.querySelectorAll("[data-knob]").forEach((el) => { el.style.left = r * 100 + "%"; });
+        document.querySelectorAll("[data-play]").forEach((btn) => {
+          btn.innerHTML = audio.paused ? playIcon : pauseIcon;
+          btn.setAttribute("aria-label", audio.paused ? "Play Leeya Glow" : "Pause the song");
+        });
+      }
+      audio.addEventListener("timeupdate", syncPlayers);
+      audio.addEventListener("loadedmetadata", syncPlayers);
+      audio.addEventListener("play", syncPlayers);
+      audio.addEventListener("pause", syncPlayers);
+      document.querySelectorAll("[data-play]").forEach((btn) => {
+        btn.addEventListener("click", () => audio.paused ? audio.play() : audio.pause());
+      });
+      document.querySelectorAll("[data-seek]").forEach((bar) => {
+        bar.addEventListener("click", (e) => {
+          const r = bar.getBoundingClientRect();
+          if (!audio.duration) return;
+          audio.currentTime = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * audio.duration;
+          syncPlayers();
+        });
+      });
+
+      const rain = document.getElementById("rain");
+      const glyphs = ["❀", "✿", "❤️", "🌸"];
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        for (let i = 0; i < 14; i++) {
+          const p = document.createElement("span");
+          p.className = "petal";
+          p.textContent = glyphs[i % glyphs.length];
+          p.style.left = (4 + (i * 7) % 92) + "%";
+          p.style.animationDuration = 10 + (i % 7) + "s";
+          p.style.animationDelay = (i * 0.7) + "s";
+          rain.appendChild(p);
+        }
+      }
+
+      const scroller = document.getElementById("hearts");
+      function cols() {
+        const w = innerWidth;
+        if (w < 420) return 20;
+        if (w < 720) return 32;
+        if (w < 1100) return 40;
+        return 50;
+      }
+      function glyph(i) {
+        if (i % 100 === 0) return "💖";
+        if (i % 17 === 0) return "💕";
+        return "❤️";
+      }
+      let c = cols();
+      let rows = Math.ceil(TOTAL / c);
+      function render() {
+        const top = scroller.scrollTop;
+        const h = scroller.clientHeight;
+        const start = Math.max(0, Math.floor(top / ROW_H) - 4);
+        const vis = Math.ceil(h / ROW_H) + 8;
+        const end = Math.min(rows, start + vis);
+        const frag = document.createDocumentFragment();
+        const spacerTop = document.createElement("div");
+        spacerTop.style.height = start * ROW_H + "px";
+        frag.appendChild(spacerTop);
+        for (let r = start; r < end; r++) {
+          const row = document.createElement("div");
+          row.className = "heart-row";
+          row.style.gridTemplateColumns = "repeat(" + c + ", 1fr)";
+          const from = r * c;
+          const to = Math.min(TOTAL, from + c);
+          for (let i = from; i < to; i++) {
+            const cell = document.createElement("span");
+            cell.className = "heart-cell";
+            cell.dataset.i = String(i);
+            cell.textContent = glyph(i);
+            row.appendChild(cell);
+          }
+          frag.appendChild(row);
+        }
+        const spacerBot = document.createElement("div");
+        spacerBot.style.height = Math.max(0, (rows - end) * ROW_H) + "px";
+        frag.appendChild(spacerBot);
+        scroller.replaceChildren(frag);
+      }
+      scroller.addEventListener("scroll", () => render(), { passive: true });
+      addEventListener("resize", () => {
+        c = cols();
+        rows = Math.ceil(TOTAL / c);
+        render();
+      });
+      scroller.addEventListener("click", (e) => {
+        const cell = e.target.closest(".heart-cell");
+        if (!cell) return;
+        cell.classList.add("pop");
+        setTimeout(() => cell.classList.remove("pop"), 220);
+      });
+      document.getElementById("last").addEventListener("click", () => {
+        scroller.scrollTop = rows * ROW_H;
+      });
+      render();
+    </script>
+  </body>
+</html>
